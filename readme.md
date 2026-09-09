@@ -1,45 +1,30 @@
-# Softeng Starter Code Repo
+# Brigham and Women's Hospital Web Application
 
-This document contains an outline of
-the entire repo, the tooling in the
-repo, and explanations of the provided
-tooling, including why it was selected.
+A team-built web application created for an Agile/Scrum software-engineering course. It brings together indoor wayfinding, service-request workflows, and administrative data management for a hospital setting.
 
-Each "package" in this repo also contains a
-readme, providing further details on its tooling,
-and the reasoning for the tooling it has.
+## What it demonstrates
 
-<!-- TOC -->
+- An interactive, multi-floor map that generates directions using selectable BFS, DFS, Dijkstra's, and A* pathfinding, with an accessibility option for wheelchair-accessible routes.
+- Role-gated staff and administrator views for service requests, including medical-device, medicine, food, flower, gift, religious, and room-scheduling requests.
+- Administrative workflows for map nodes and edges, employee records, CSV import and export, and request-status, priority, user, and type visualizations.
 
-- [Softeng Starter Code Repo](#softeng-starter-code-repo)
-  - [WebStorm Run Configurations](#webstorm-run-configurations)
-  - [Installation and Useful Scripts](#installation-and-useful-scripts)
-  - [Design Pattern](#design-pattern)
-  - [Frontend vs Backend (A Web-Development Overview)](#frontend-vs-backend-a-web-development-overview)
-    - [The Hyper-Text Transfer Protocol (HTTP)](#the-hyper-text-transfer-protocol-http)
-    - [Using HTTP](#using-http)
-  - [Package Overview](#package-overview)
-    - [TypeScript](#typescript)
-    - [Node.js](#nodejs)
-    - [Yarn](#yarn)
-    - [Turbo.repo](#turborepo)
-    - [ESLint](#eslint)
-    - [Prettier](#prettier)
-    - [Husky](#husky)
-    - [Docker](#docker)
-    - [PostgreSQL](#postgresql)
-    - [Traefik](#traefik)
-    - [Vitest](#vitest)
-  - [Miscellaneous](#miscellaneous)
-  _ [.run](#run)
-  _ [deploy.sh](#deploysh)
-  _ [.turbo](#turbo)
-  _ [.gitignore](#gitignore)
-  _ [Apps](#apps)
-  _ [Configs](#configs)
-  _ [node_modules](#node_modules)
-  _ [Packages](#packages)
-  <!-- TOC -->
+## My role
+
+Sean was a back-end developer on the Agile/Scrum course team.
+
+## Technology
+
+The application uses a React/Vite and TypeScript frontend, an Express and TypeScript API, Prisma with PostgreSQL, Docker Compose, and Yarn workspaces with Turborepo. The repository also includes Vitest, ESLint, and Prettier tooling.
+
+The [frontend](apps/frontend), [backend](apps/backend), [shared package](packages/common), and [database package](packages/database) are organized as a monorepo.
+
+## Project status
+
+The project is currently not deployed, so there is no live demo.
+
+## Development guide
+
+The original setup and tooling guide follows. It retains the repository's installation, build, lint, development, test, and Docker commands.
 
 ## WebStorm Run Configurations
 
