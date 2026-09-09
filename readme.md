@@ -4,13 +4,13 @@ A team-built web application created for an Agile/Scrum software-engineering cou
 
 ## What it demonstrates
 
-- An interactive, multi-floor map that generates directions using selectable BFS, DFS, Dijkstra's, and A* pathfinding, with an accessibility option for wheelchair-accessible routes.
-- Role-gated staff and administrator views for service requests, including medical-device, medicine, food, flower, gift, religious, and room-scheduling requests.
+- An interactive, multi-floor map that generates directions using selectable BFS, DFS, Dijkstra's, and A* pathfinding, with a route option that excludes stair segments.
+- Auth0-backed frontend routes for staff and administrator views of service requests, including medical-device, medicine, food, flower, gift, religious, and room-scheduling requests.
 - Administrative workflows for map nodes and edges, employee records, CSV import and export, and request-status, priority, user, and type visualizations.
 
 ## My role
 
-Sean was a back-end developer on the Agile/Scrum course team.
+I worked as a back-end developer on the Agile/Scrum course team. The features described here are the team's work.
 
 ## Technology
 
@@ -20,7 +20,7 @@ The [frontend](apps/frontend), [backend](apps/backend), [shared package](package
 
 ## Project status
 
-The project is currently not deployed, so there is no live demo.
+This is an archived academic course project, not an official hospital service or a production deployment. There is no live demo. The feature descriptions above reflect the source code; the full application has not been retested as part of this documentation update.
 
 ## Development guide
 
