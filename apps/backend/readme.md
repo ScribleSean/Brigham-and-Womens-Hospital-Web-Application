@@ -15,11 +15,11 @@
 This package defines the backend server, and the RESTful API it
 represents. It also includes the packages used.
 
-This package should be run from the root, see the root readme.md for details.
+Run this package from the repository root; see the [development guide](../../readme.md#development-guide).
 
 As discussed in the top-level repo, this project runs completely independently
 (in fact, on a different Docker container) of the frontend package.
-**This application contains **NO UI components\*\*.
+**This application contains no UI components.**
 
 ## RESTful API Basics
 

@@ -19,10 +19,10 @@
     - [main.tsx](#maintsx)
     <!-- TOC -->
 
-This package defines the backend server, and the RESTful API it
-represents. It also includes the packages used.
+This package contains the React frontend and its Vite tooling. It presents
+the application's pages and calls the separate backend API.
 
-This package should be run from the root, see the root readme.md for details.
+Run this package from the repository root; see the [development guide](../../readme.md#development-guide).
 
 As discussed in the top-level repo, this project runs completely independently
 (in fact, on a different Docker container) of the backend package. **This application
