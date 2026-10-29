@@ -28,20 +28,19 @@ The original setup and tooling guide follows. It retains the repository's instal
 
 ## WebStorm Run Configurations
 
-Use the provided run configurations - `Start Dev`, `Start Prod`, and
+Use the provided run configurations - `Start Dev`, `Start Tests`, and
 `Debug` (use Debug after `Start Dev`) - to interact with the repo via WebStorm. These configurations
-are customized to properly connect the repo to WebStorm. Running files directly,
-or outside of these configurations, will have unexpected results.
+are tracked in `.run/`; no `Start Prod` configuration is tracked in `.run/` or `.idea/`.
+Their runtime behavior is not verified.
 
-Using the `Dev` configuration, the development servers will automatically restart when a file change occurs.
+Using the `dev` configuration, the development servers will automatically restart when a file change occurs.
 If a restart is not occurring, use `CMD + S`/`CTRL + S` to manually save the
 file and trigger the restart.
 
 ## Installation and Useful Scripts
 
 - Run `yarn install` to install all packages
-- Run `yarn build:dev` to build the development environment
-- Run `yarn setup` runs the above two commands
+- The root `build:dev` script is missing. `yarn setup` calls it after installing packages, so that setup path is not verified.
 - Run `yarn run lint:fix` to validate your code content and style
 - Run `yarn run dev` to start the development server
 - Run `yarn run deploy` to run the production server
@@ -314,9 +313,21 @@ The Docker configuration in this repository has a few configurations items:
   re-usable way that creates the smallest possible images
 - `docker-compose.test.yaml` which provides instructions to Docker to run images (and a PostgreSQL database) for testing
 
-It is recommended that the Yarn `dev`, `prod`, `test` and their associated `dev:stop`, `prod:stop`, and `test:stop` configurations
-be used to start the containers, or the WebStorm run configurations `Start Prod`,
-`Start Dev`, and `Start Tests` be used to start the containers.
+Use `yarn dev:docker`, `yarn deploy`, and `yarn test:docker` to start the development, production,
+and test containers. The WebStorm run configurations `Start Dev` and `Start Tests` also target
+the development and test containers. These commands and configurations are tracked; their runtime behavior is not verified.
+
+### Production environment variables
+
+Supply these environment variables before running the production Compose configuration.
+Compose fails if either variable is unset or empty. The values below are placeholders only.
+
+```text
+POSTGRES_PASSWORD=<database-password>
+DATABASE_URL=<database-connection-url>
+```
+
+`DATABASE_URL` supplies the complete external RDS connection URL used by `POSTGRES_URL`.
 
 You should not modify or move any of the Docker files unless you are absolutely sure
 you know what you are doing.
@@ -331,9 +342,8 @@ open-source, and the most widely used SQL database.
 In the development environment, the database is accessible via any standard
 query console, using the credentials username: "dev", password: "dev", and database: dev on localhost:5432.
 
-In the production environment, the database is **not accessible** outside the Docker
-container network. This means that nothing except for your backend code can access the database. This
-is how most production databases are configured.
+In the production environment, the application used an external AWS RDS database
+supplied via environment variables. Network access restrictions were configured outside this repository.
 
 PostgreSQL is configured through `docker-compose....yaml` for both production and development.
 

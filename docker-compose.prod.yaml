@@ -4,7 +4,7 @@ x-prod-args: &prod-args # Port that both servers will run production on
   PORT: *prod-port # Duplicate this under the name that the env variable will expect. Build args will override as necessary
 
 x-db-info: &db-args
-  POSTGRES_PASSWORD: postgres
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD for production}
   POSTGRES_USER: postgres
   POSTGRES_DB: postgres
 
@@ -14,7 +14,7 @@ x-db-loc: &db-loc
   POSTGRES_PORT: &pg-port "5432"
 
   # The environment variables will expect this to already be formed, build args will override it
-  POSTGRES_URL: "postgresql://postgres:postgres@team-n-prod.c7smwwuoo2pm.us-east-2.rds.amazonaws.com:5432/postgres?schema=public"
+  POSTGRES_URL: "${DATABASE_URL:?Set DATABASE_URL for production}"
 
 # Health check for all processes
 x-health-check: &health-check
