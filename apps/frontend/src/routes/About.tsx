@@ -17,7 +17,7 @@ import { Box, Container } from "@mui/material";
 function About() {
   const everyone = [
     {
-      gamertag: "Sean Arackal",
+      gamertag: "ScribleSean",
       description: "Full-Stack Developer",
       quote:
         '"First, solve the problem. Then, write the code." - John Johnson',
