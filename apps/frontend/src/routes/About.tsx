@@ -19,7 +19,8 @@ function About() {
     {
       gamertag: "Sean Arackal",
       description: "Full-Stack Developer",
-      quote: '"i smoked away my brain " - A$AP Rocky',
+      quote:
+        '"First, solve the problem. Then, write the code." - John Johnson',
       image: Sean,
     },
     {
