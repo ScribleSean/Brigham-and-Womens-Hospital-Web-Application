@@ -10,7 +10,7 @@ x-db-info: &db-args
 
 # Port and URL for the DB
 x-db-loc: &db-loc
-  POSTGRES_CONTAINER: team-n-prod.c7smwwuoo2pm.us-east-2.rds.amazonaws.com
+  POSTGRES_CONTAINER: ${POSTGRES_HOST:?Set POSTGRES_HOST for production}
   POSTGRES_PORT: &pg-port "5432"
 
   # The environment variables will expect this to already be formed, build args will override it
@@ -42,7 +42,7 @@ services:
       - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
 
       # Auto-certificate generation parameters
-      - "--certificatesresolvers.letsencrypt.acme.email=cpconsiglio@wpi.edu"
+      - "--certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL:?Set ACME_EMAIL for production}"
       - "--certificatesresolvers.letsencrypt.acme.storage=acme.json"
 
       # Used during resolution
@@ -85,7 +85,7 @@ services:
 
       # The 443 entrypoint is the actual site
       - "traefik.http.routers.frontend-https.entrypoints=websecure"
-      - "traefik.http.routers.frontend-https.rule=Host(`ec2-18-221-189-137.us-east-2.compute.amazonaws.com`)"
+      - "traefik.http.routers.frontend-https.rule=Host(`${APP_HOST:?Set APP_HOST for production}`)"
       - "traefik.http.routers.frontend-https.tls=true"
 
       # Despite the "loadbalancer" naming, this just describes what port this container exposes
@@ -119,7 +119,7 @@ services:
 
       # The 443 entrypoint is the actual site
       - "traefik.http.routers.backend-https.entrypoints=websecure"
-      - "traefik.http.routers.backend-https.rule=Host(`ec2-18-221-189-137.us-east-2.compute.amazonaws.com`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.backend-https.rule=Host(`${APP_HOST:?Set APP_HOST for production}`) && PathPrefix(`/api`)"
       - "traefik.http.routers.backend-https.tls=true"
 
       # Despite the "loadbalancer" naming, this just describes what port this container exposes
