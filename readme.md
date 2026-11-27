@@ -15,7 +15,7 @@ A hospital web app with indoor wayfinding, service requests and admin tools. Bui
 
 ## Run it
 
-The simplest way to run the app locally is the development Compose stack, which starts the frontend, backend and a PostgreSQL database:
+The development Compose stack starts the frontend, backend and a PostgreSQL database:
 
 ```sh
 yarn install
@@ -43,17 +43,7 @@ These commands come from the original course setup and have not been retested si
 
 ## Production
 
-`docker-compose.prod.yaml` runs the frontend and backend behind Traefik, which handles HTTPS through Let's Encrypt. It expects an external PostgreSQL database. Set these variables before running `yarn deploy`; the values below are placeholders:
-
-```text
-APP_HOST=<public-hostname>
-ACME_EMAIL=<lets-encrypt-contact-email>
-POSTGRES_HOST=<database-host>
-POSTGRES_PASSWORD=<database-password>
-DATABASE_URL=<postgresql-connection-url>
-```
-
-Stop it with `yarn deploy:stop`.
+`docker-compose.prod.yaml` runs the frontend and backend behind Traefik with Let's Encrypt HTTPS and an external PostgreSQL database. It reads `APP_HOST`, `ACME_EMAIL`, `POSTGRES_HOST`, `POSTGRES_PASSWORD` and `DATABASE_URL` from the environment. Start it with `yarn deploy` and stop it with `yarn deploy:stop`.
 
 ## Project structure
 
@@ -69,6 +59,10 @@ This is a Yarn workspaces monorepo managed with Turborepo.
 | `scripts/` | Helper scripts used by `yarn fix` and `yarn sync` |
 | `Dockerfile`, `docker-compose.*.yaml` | Development, test and production containers |
 | `.run/` | WebStorm run configurations (`Start Dev`, `Start Tests`, `Debug`) |
+
+## Team
+
+[ScribleSean](https://github.com/ScribleSean), [MaceTheWindu66](https://github.com/MaceTheWindu66), [Lorenzo-Cassano](https://github.com/Lorenzo-Cassano), [FastJr](https://github.com/FastJr), [peczepiel](https://github.com/peczepiel), [E-man-dev](https://github.com/E-man-dev), [tahutzley](https://github.com/tahutzley), [josemanuel657](https://github.com/josemanuel657), [gnonk323](https://github.com/gnonk323), [gabrielolafs](https://github.com/gabrielolafs) and [SofiaXie](https://github.com/SofiaXie).
 
 ## License
 
